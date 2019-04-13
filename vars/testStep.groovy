@@ -1,8 +1,7 @@
-#!/usr/bin/env groovy
 // vars/MyCustomStep.groovy
 
-def call() {
-    echo "sample code"
+def call(String someVar = 'defValue') {
+    echo "sample code ${someVar}"
     sh """
       ls -l 
     """
