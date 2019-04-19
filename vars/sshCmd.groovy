@@ -12,6 +12,8 @@ def call(String cmd, String host, String user = '', String sshCredentials = '') 
     user = (!user?.trim())? '': "${user.trim()}@"
 
     def finalCmd = "ssh ${user}${host} ${cmd}"
+    echo "finalCmd: ${finalCmd}"
+
     def response = ''
 
     verifyKnownHosts host
