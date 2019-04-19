@@ -9,10 +9,11 @@ def call(String cmd, String host, String user = '', String sshCredentials = '') 
         error "No host provided."
         return
     }
+    cmd = cmd.trim()
+    host = host.trim()
     user = (!user?.trim())? '': "${user.trim()}@"
 
     def finalCmd = "ssh ${user}${host} ${cmd}"
-    echo "finalCmd: ${finalCmd}"
 
     def response = ''
 
