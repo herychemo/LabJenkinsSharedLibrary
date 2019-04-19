@@ -1,15 +1,15 @@
 // vars/sshCmd.groovy
 
 def call(String cmd, String host, String user = '', String sshCredentials = '') {
-    if (!cmd) {
+    if (!cmd?.trim()) {
         error "No command provided."
         return
     }
-    if (!host) {
-        error "No command provided."
+    if (!host?.trim()) {
+        error "No host provided."
         return
     }
-    user = (!user)? '': "${user}@"
+    user = (!user?.trim())? '': "${user.trim()}@"
 
     def finalCmd = "ssh ${user}${host} ${cmd}"
     def response = ''
